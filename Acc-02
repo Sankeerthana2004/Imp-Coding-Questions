@@ -1,0 +1,33 @@
+import java.util.*;
+class Main {
+    public static int operationsBinaryString(String str){
+        if(str==null){
+            return -1;
+        }
+        int res=str.charAt(0)-'0';
+        for(int i=1;i<str.length();)
+        {
+            char prev=str.charAt(i);
+            i++;
+            if(prev=='A')
+            {
+                res=prev & str.charAt(i);
+            }
+            else if(prev=='B')
+            {
+                res=prev | str.charAt(i);
+            }
+            else{
+                res=prev ^ str.charAt(i);
+            }
+            i++;
+        }
+        return res;
+    }
+    public static void main(String [] args)
+    {
+    Scanner s=new Scanner(System.in);
+    String str=s.next();
+    System.out.println(operationsBinaryString(str));
+    }
+}
